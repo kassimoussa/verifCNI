@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <title>Chargement CIN</title>
+    <script src="popup.js"></script>
+
+    <style>
+        .winp {
+            width: 90px;
+        }
+
+        .winp2 {
+            width: 140px;
+        }
+
+        .wslt {
+            width: 40px !important;
+        }
+
+        /* Add your spinner styling here */
+        #spinner {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            z-index: 9999;
+            opacity: .75;
+        }
+
+        .json-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            white-space: pre;
+        }
+
+    </style>
+</head>
+
+<body style=" width: 600px; height: 500px;">
+
+
+    <div class="container mt-3">
+
+        <h2 class="text-center">Vérification de CNI</h2>
+
+        <div class="input-group input-group-sm mb-3">
+            <input type="number" pattern="[0-9]{6}" required class="form-control form-control-sm " id="idcni">
+            <button type="button" id="uploadButton" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center ">
+        <div id="spinner" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div id="jsonContent" class="json-container" style="display: none;"></div>
+    <div class="container text-center">
+        <div class="alert alert-danger" id="alertdiv" style="display: none;  "></div>
+    </div>
+
+    <div class="container my-3" id="resultdiv" style="display: none;">
+
+        <div class="container text-center">
+
+            <div class="row ">
+
+                <div class="input-group my-1 col-12">
+                    <span class="input-group-text winp">Nom</span>
+                    <input type="text" aria-label="Nom" id="nom" class="form-control">
+                </div>
+
+                <div class="input-group my-1 col-12">
+                    <span class="input-group-text winp">Sa mère</span>
+                    <input type="text" aria-label="nom_mere" id="nom_mere" class="form-control">
+                </div>
+
+            </div>
+
+            <div class="row ">
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">Né lé</span>
+                    <input type="text" aria-label="date_naissance" id="date_naissance" class="form-control">
+                </div>
+
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">A</span>
+                    <input type="text" aria-label="lieu_naissance" id="lieu_naissance" class="form-control">
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">Emission</span>
+                    <input type="text" aria-label="date_emission" id="date_emission" class="form-control">
+                </div>
+
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">Expiration</span>
+                    <input type="text" aria-label="date_expiration" id="date_expiration" class="form-control">
+                </div>
+            </div>
+
+            <div class="row ">
+
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">Profession</span>
+                    <input type="text" aria-label="profession" id="profession" class="form-control">
+                </div>
+
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">Domicile</span>
+                    <input type="text" aria-label="adresse" id="adresse" class="form-control">
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">Sexe</span>
+                    <input type="text" aria-label="sexe" id="sexe" class="form-control">
+                </div>
+
+                <div class="input-group my-1 col">
+                    <span class="input-group-text winp">CIN N°</span>
+                    <input type="text" aria-label="ncni" id="ncni" class="form-control">
+                </div>
+            </div>
+
+            <button class="btn btn-sm btn-primary my-2 w-50 " id="btnCharger" type="button">Charger</button>
+
+        </div>
+
+    </div>
+    
+</body>
+
+</html>

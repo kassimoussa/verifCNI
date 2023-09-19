@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Verif CNI ",
+    "version": "1.0",
+    "description": "Check if an ID Card is valid", 
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "djibtelogo.png"
+      }
+    },
+    "icons": {
+      "16": "djibtelogo.png"
+    },
+    "permissions": [
+      "storage", "activeTab", "tabs", "scripting"
+    ],
+    "content_scripts":[
+        {
+            "matches": ["<all_urls>"],
+            "js":["content.js"]
+        }
+    ]
+  }
+  
